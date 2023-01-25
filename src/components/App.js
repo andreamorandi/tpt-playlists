@@ -1,10 +1,21 @@
 import React from "react";
-import PlaylistsList from "./PlaylistsList";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
+import PlaylistList from "./PlaylistList";
+import PlaylistShow from "./PlaylistShow";
+import NotFound from "./NotFound";
 
-const App = () => {
+function App() {
     return (
-        <div>
-            <PlaylistsList />
+        <div className="ui container">
+            <BrowserRouter>
+                <div>
+                    <Switch>
+                        <Route path="/" exact component={PlaylistList} />
+                        <Route path="/playlists/:id" exact component={PlaylistShow} />
+                        <Route component={NotFound} />
+                    </Switch>
+                </div>
+            </BrowserRouter>
         </div>
     );
 };

@@ -2,11 +2,11 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const proxyUrl = 'http://0.0.0.0:8080';
-const apiUrl = 'https://api.deezer.com/chart/0/playlists?limit=30';
+const apiUrl = 'https://api.deezer.com/playlist';
 
-const fetchPlaylists = createAsyncThunk('playlists/fetch', async () => {
+const fetchPlaylistDetails = createAsyncThunk('playlistDetails/fetch', async (id) => {
     // Request after running the following proxy package: https://github.com/Spicy-Sparks/cors
-    const response = await axios.get(proxyUrl + '/' + apiUrl);
+    const response = await axios.get(proxyUrl + '/' + apiUrl + '/' + id);
 
     // dev only
     await pause(1000);
@@ -21,4 +21,4 @@ const pause = (duration) => {
     });
 }
 
-export { fetchPlaylists };
+export { fetchPlaylistDetails };
