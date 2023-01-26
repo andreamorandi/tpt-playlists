@@ -12,8 +12,8 @@ function PlaylistList() {
     });
 
     useEffect(() => {
-        if (!data.data.length) dispatch(fetchPlaylists());
-    }, [data.data.length, dispatch]);
+        if (!data.data) dispatch(fetchPlaylists());
+    }, [data.data, dispatch]);
 
     let content;
     if (isLoading) {

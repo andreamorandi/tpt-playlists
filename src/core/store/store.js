@@ -1,27 +1,36 @@
 import { configureStore } from "@reduxjs/toolkit";
+import persistReducer from "redux-persist/es/persistReducer";
+import persistStore from "redux-persist/es/persistStore";
 import storage from "redux-persist/lib/storage";
 import { playlistsReducer } from "./slices/playlistsSlice";
 import { playlistDetailsReducer } from "./slices/playlistDetailsSlice";
+import { fromJS } from "immutable";
+import createTransform from "redux-persist/es/createTransform";
 import {
-    persistStore,
-    persistReducer,
     FLUSH,
     REHYDRATE,
     PAUSE,
     PERSIST,
     PURGE,
     REGISTER,
-} from "redux-persist";
+} from "redux-persist/es/constants";
+
+const immutableTransform = createTransform(
+    (inboundState, key) => fromJS(inboundState),
+    (outboundState, key) => outboundState.toJS()
+);
 
 const persistConfigPlaylists = {
     key: 'playlists',
-    storage
+    storage,
+    transforms: [immutableTransform]
 }
 const persistedPlaylistsReducer = persistReducer(persistConfigPlaylists, playlistsReducer);
 
 const persistConfigPlaylistDetails = {
     key: 'playlistDetails',
-    storage
+    storage,
+    transforms: [immutableTransform]
 }
 const persistedPlaylistDetailsReducer = persistReducer(persistConfigPlaylistDetails, playlistDetailsReducer);
 

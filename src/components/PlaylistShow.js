@@ -14,7 +14,7 @@ function PlaylistShow() {
     const { id } = useParams();
 
     useEffect(() => {
-        if (data.id !== parseInt(id)) dispatch(fetchPlaylistDetails(id));
+        if (!data.id || data.id !== parseInt(id)) dispatch(fetchPlaylistDetails(id));
     }, [id, data.id, dispatch]);
 
     let content;
