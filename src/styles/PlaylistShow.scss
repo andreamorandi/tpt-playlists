@@ -1,0 +1,14 @@
+@use "../styles/partials/variables" as *;
+
+main {
+    width: 100%;
+    height: $playlist-show-main-height;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    overflow: scroll;
+    padding: .5rem 0;
+}
+.square {
+    color: $tertiary-text-color;
+}

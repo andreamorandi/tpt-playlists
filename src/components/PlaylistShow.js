@@ -1,9 +1,12 @@
+import "../styles/PlaylistShow.scss";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchPlaylistDetails } from "../core/store/store";
 import Skeleton from "./Skeleton";
+import PlaylistShowHeader from "./PlaylistShowHeader";
+import PlaylistShowTrack from "./PlaylistShowTrack";
 
 function PlaylistShow() {
     const dispatch = useDispatch();
@@ -17,29 +20,31 @@ function PlaylistShow() {
         if (!data.id || data.id !== parseInt(id)) dispatch(fetchPlaylistDetails(id));
     }, [id, data.id, dispatch]);
 
-    let content;
+    let tracks;
     if (isLoading) {
-        content = <Skeleton times={6} className="h-10 w-full" />;
+        return <Skeleton times={6} className="h-10 w-full" />;
     } else if (error) {
-        content = <div>Error fetching data...</div>;
+        return <div>C'è stato un errore nel caricamento delle tracce.</div>;
     } else if (data.tracks) {
-        content = data.tracks.data.map((track) => {
+        tracks = data.tracks.data.map((track) => {
             return (
-                <div key={track.id} className="mb-2 border rounded">
-                    <div className="flex p-2 justify-between items-center cursor-pointer">
-                        {track.title}
-                    </div>
-                </div>
+                <li key={track.id}>
+                    <PlaylistShowTrack track={track} />
+                </li>
             );
         });
     }
 
     return (
         <div>
-            <div className="flex flex-row justify-between m-3">
-                <h1 className="m-2 text-xl">Tracks</h1>
-            </div>
-            {content}
+            <PlaylistShowHeader playlist={data} />
+            <main>
+                <div className="ms_container">
+                    <ul>
+                        {tracks}
+                    </ul>
+                </div>
+            </main>
         </div>
     );
 }

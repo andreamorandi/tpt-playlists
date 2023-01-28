@@ -16,8 +16,9 @@ import {
 } from "redux-persist/es/constants";
 
 const immutableTransform = createTransform(
-    (inboundState, key) => fromJS(inboundState),
-    (outboundState, key) => outboundState.toJS()
+    (inboundState) => fromJS(inboundState),
+    (outboundState) => outboundState.toJS(),
+    { whitelist: ["playlists", "playlistDetails"] }
 );
 
 const persistConfigPlaylists = {
