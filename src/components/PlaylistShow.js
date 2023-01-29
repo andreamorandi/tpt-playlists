@@ -20,33 +20,40 @@ function PlaylistShow() {
         if (!data.id || data.id !== parseInt(id)) dispatch(fetchPlaylistDetails(id));
     }, [id, data.id, dispatch]);
 
-    let tracks;
+    let content;
     if (isLoading) {
-        return <Skeleton times={6} className="h-10 w-full" />;
+        content = <div className="px-5 lg:px-10">
+            <div className="flex justify-start gap-10 mt-5">
+                <Skeleton times={1} className="h-52 w-52" />
+                <Skeleton times={1} className="h-52 w-2/5" />
+            </div>
+            <div className="mt-14">
+                <Skeleton times={10} className="h-14 w-full mt-4" />
+            </div>
+        </div>;
     } else if (error) {
-        return <div>C'è stato un errore nel caricamento delle tracce.</div>;
+        content = <div>C'è stato un errore nel caricamento delle tracce.</div>;
     } else if (data.tracks) {
-        tracks = data.tracks.data.map((track) => {
+        const tracks = data.tracks.data.map((track) => {
             return (
                 <li key={track.id}>
                     <PlaylistShowTrack track={track} />
                 </li>
             );
         });
-    }
-
-    return (
-        <div>
+        content = <>
             <PlaylistShowHeader playlist={data} />
-            <main>
+            <main className="show">
                 <div className="ms_container">
                     <ul>
                         {tracks}
                     </ul>
                 </div>
             </main>
-        </div>
-    );
+        </>;
+    }
+
+    return content;
 }
 
 export default PlaylistShow;

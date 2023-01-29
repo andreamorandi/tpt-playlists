@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/PlayButton.scss";
 
-function PlayButton() {
+function PlayButton(props) {
     const [isActive, setIsActive] = useState(false);
 
     const toggleActive = () => {
@@ -9,9 +9,9 @@ function PlayButton() {
     }
 
     return (
-        <div className={`button ${isActive ? 'active' : ''}`}>
+        <div className={`button ${isActive ? 'active' : ''} ${props.container}`}>
             <div className="background"></div>
-            <div className="icon" width="50" height="50">
+            <div className="icon">
                 <div className="left part"></div>
                 <div className="right part"></div>
             </div>

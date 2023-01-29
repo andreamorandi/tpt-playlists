@@ -1,9 +1,10 @@
 @use "../styles/partials/variables" as *;
+
 .ms_track {
     min-width: $playlist-show-main-min-width;
     cursor: pointer;
     &:hover {
-        background-color: #191922;
+        background-color: $hover-color;
     }
     .image-wrapper {
         position: relative;

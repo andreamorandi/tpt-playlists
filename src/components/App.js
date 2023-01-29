@@ -7,7 +7,7 @@ import NotFound from "./NotFound";
 
 function App() {
     return (
-        <div className="ui container">
+        <>
             <BrowserRouter>
                 <div>
                     <Switch>
@@ -17,7 +17,7 @@ function App() {
                     </Switch>
                 </div>
             </BrowserRouter>
-        </div>
+        </>
     );
 };
 

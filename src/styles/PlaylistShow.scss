@@ -1,6 +1,6 @@
 @use "../styles/partials/variables" as *;
 
-main {
+.show {
     width: 100%;
     height: $playlist-show-main-height;
     position: fixed;
@@ -8,6 +8,10 @@ main {
     bottom: 0;
     overflow: scroll;
     padding: .5rem 0;
+}
+.list {
+    padding-top: 1.25rem;
+    padding-bottom: 2.25rem;
 }
 .square {
     color: $tertiary-text-color;

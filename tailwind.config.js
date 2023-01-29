@@ -11,7 +11,7 @@ module.exports = {
         }
       },
       animation: {
-        shimmer: 'shimmer 1.5s infinite',
+        shimmer: 'shimmer .9s infinite',
       }
     },
   },

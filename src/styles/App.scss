@@ -13,6 +13,7 @@ html {
         color: $primary-text-color;
         background-color: $primary-bg-color;
         .ms_container {
+            width: 100vw;
             padding: 0 $container-px;
         }
     }
