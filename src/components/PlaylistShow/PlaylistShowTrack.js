@@ -1,14 +1,13 @@
-import "../styles/PlaylistShowTrack.scss";
 import React, { useState } from "react";
-import { secondsToMinutesAndSeconds } from "../core/helpers/time";
-import PlayButton from "./PlayButton";
-import "../styles/PlaylistShow.scss";
+import { secondsToMinutesAndSeconds } from "../../core/helpers/time";
+import PlayButton from "../PlayButton";
+import "../../styles/PlaylistShow/PlaylistShowTrack.scss";
 
 function PlaylistShowTrack(props) {
     const [isHover, setIsHover] = useState(false);
     const track = props.track;
     return (
-        <div className="grid grid-cols-11 gap-4 py-2 ms_track" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <div data-testid="track" className="grid grid-cols-11 gap-4 py-2 ms_track" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <div className="col-start-1 col-end-6 flex items-center ml-5">
                 <div className="image-wrapper">
                     <img src={track.album.cover_small} alt={track.album.title} className="rounded" />

@@ -1,7 +1,7 @@
-import "../styles/PlaylistShowHeader.scss";
 import React from "react";
-import { secondsToHoursAndMinutes } from "../core/helpers/time";
-import { formatNumber } from "../core/helpers/format";
+import { secondsToHoursAndMinutes } from "../../core/helpers/time";
+import { formatNumber } from "../../core/helpers/format";
+import "../../styles/PlaylistShow/PlaylistShowHeader.scss";
 
 function PlaylistShowHeader(props) {
     const playlist = props.playlist;
@@ -18,7 +18,7 @@ function PlaylistShowHeader(props) {
                         {playlist.creator && <p>{playlist.creator.name}</p>}
                     </div>
                     <div className="details">
-                        <p>{playlist.description}</p>
+                        <p>{playlist.description === 'Le hit del momento e tormentoni del passato %ud83d%udca5' ? 'Le hit del momento e tormentoni del passato.' : playlist.description}</p>
                         <span>{playlist.nb_tracks} brani - </span>
                         <span>{secondsToHoursAndMinutes(playlist.duration)} - </span>
                         <span>{formatNumber(playlist.fans)} fan - </span>

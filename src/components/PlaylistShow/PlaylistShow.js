@@ -1,12 +1,12 @@
-import "../styles/PlaylistShow.scss";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchPlaylistDetails } from "../core/store/store";
-import Skeleton from "./Skeleton";
+import { fetchPlaylistDetails } from "../../core/store/store";
+import Skeleton from "../Skeleton";
 import PlaylistShowHeader from "./PlaylistShowHeader";
 import PlaylistShowTrack from "./PlaylistShowTrack";
+import "../../styles/PlaylistShow/PlaylistShow.scss";
 
 function PlaylistShow() {
     const dispatch = useDispatch();

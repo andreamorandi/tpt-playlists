@@ -12,9 +12,6 @@
             margin-left: .35rem;
         }
     }
-    .carousel-item {
-        width: 300px;
-    }
     .carousel-gutter {
         padding: 1.75rem;
     }
@@ -43,8 +40,14 @@
         .carousel-gutter {
             padding: 1.25rem;
         }
-        h2 {
+        .section-title {
             padding: 0 1.25rem;
+        }
+    }
+    @media (max-width: 600px) {
+        .section-title {
+            font-size: 1.25rem;
+            padding-bottom: .25rem;
         }
     }
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
-import PlayButton from "./PlayButton";
+import PlayButton from "../PlayButton";
 import { Link } from "react-router-dom";
-import { formatNumber } from "../core/helpers/format";
-import "../styles/MultiCarousel.scss";
+import { formatNumber } from "../../core/helpers/format";
+import "../../styles/PlaylistList/PlaylistListCarousel.scss";
 
 function MultiCarousel(props) {
     return (
