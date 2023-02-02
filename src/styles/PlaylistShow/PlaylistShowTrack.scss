@@ -8,5 +8,8 @@
     }
     .image-wrapper {
         position: relative;
+        img {
+            max-width: 56px;
+        }
     }
 }

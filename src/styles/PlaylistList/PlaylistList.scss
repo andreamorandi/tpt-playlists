@@ -50,4 +50,10 @@
             padding-bottom: .25rem;
         }
     }
+    @media (max-width: 500px) {
+        .section-title {
+            font-size: 1.1rem;
+            padding-bottom: 3rem;
+        }
+    }
 }

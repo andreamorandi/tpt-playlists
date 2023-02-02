@@ -5,7 +5,7 @@
     height: $playlist-show-main-height;
     position: fixed;
     left: 0;
-    bottom: 0;
+    top: $playlist-show-header-height;
     overflow: scroll;
     padding: .5rem 0;
 }
