@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPlaylists } from "../../core/store/store";
 import Skeleton from "../Skeleton";
-import MultiCarousel from "./PlaylistListCarousel";
+import PlaylistListCarousel from "./PlaylistListCarousel";
 import "react-multi-carousel/lib/styles.css";
 import "../../styles/PlaylistList/PlaylistList.scss";
 
@@ -38,11 +38,11 @@ function PlaylistList() {
             <div className="ms_container">
                 <section data-testid="playlistList" className="playlist-list-section">
                     <h2 className="section-title">Le migliori playlist pop</h2>
-                    <MultiCarousel playlists={playlistsFirstHalf} />
+                    <PlaylistListCarousel playlists={playlistsFirstHalf} />
                 </section>
                 <section data-testid="playlistList" className="playlist-list-section">
                     <h2 className="section-title">Pop per ogni momento</h2>
-                    <MultiCarousel playlists={playlistsSecondHalf} />
+                    <PlaylistListCarousel playlists={playlistsSecondHalf} />
                 </section>
             </div>
         </main>;

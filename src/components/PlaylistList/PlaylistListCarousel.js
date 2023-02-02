@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { formatNumber } from "../../core/helpers/format";
 import "../../styles/PlaylistList/PlaylistListCarousel.scss";
 
-function MultiCarousel(props) {
+function PlaylistListCarousel(props) {
     return (
         <Carousel
             responsive={responsive}
@@ -66,4 +66,4 @@ const CustomRightArrow = ({ onClick }) => {
     return <i className="fa-solid fa-chevron-right carousel-arrow arrow-right" onClick={() => onClick()} />;
 };
 
-export default MultiCarousel;
+export default PlaylistListCarousel;
